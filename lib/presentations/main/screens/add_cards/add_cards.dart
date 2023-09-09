@@ -163,7 +163,7 @@ class _AddCardsPageState extends State<AddCardsPage> {
                       ),
                     );
                   },
-                  child: const Text('Add Contact', style: TextStyle(color: Colors.white),),
+                  child: const Text('Add Card', style: TextStyle(color: Colors.white),),
                 ),
               ],
             ),
