@@ -16,7 +16,7 @@ class UserCardsRepository{
           .collection("Cards")
           .doc(newCard.id)
           .update({"cardId": newCard.id});
-      getMyToast(message: 'Card muvaffaqiyatli saqlandi');
+      getMyToast(message: 'Karta muvaffaqiyatli saqlandi');
     } on FirebaseException catch (e) {
       getMyToast(message: e.message.toString());
     }
@@ -29,7 +29,6 @@ class UserCardsRepository{
       .map((e) => UserCard.fromJson(e.data()))
       .toList());
 
-  /// ------------------------- UPDATE CONTACT -------------------------
 
   Future<void> updateCard({required UserCard cardModel}) async {
     try {
@@ -37,18 +36,17 @@ class UserCardsRepository{
           .collection("Cards")
           .doc(cardModel.cardId)
           .update(cardModel.toJson());
-      getMyToast(message: "Card muvaffaqiyatli yangilandi!");
+      getMyToast(message: "Karta muvaffaqiyatli yangilandi!");
     } on FirebaseException catch (e) {
       getMyToast(message: e.message.toString());
     }
   }
 
-  /// ------------------------- DELETE CONTACT -------------------------
 
   Future<void> deleteCard({required String docId}) async {
     try {
       await firestore.collection("Cards").doc(docId).delete();
-      getMyToast(message: "Card muvaffaqiyatli o'chirildi");
+      getMyToast(message: "Karta muvaffaqiyatli o'chirildi");
     } on FirebaseException catch (e) {
       getMyToast(message: e.message.toString());
     }
