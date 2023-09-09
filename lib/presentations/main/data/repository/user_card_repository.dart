@@ -8,8 +8,6 @@ class UserCardsRepository{
   final FirebaseFirestore firestore;
   UserCardsRepository({required this.firestore});
 
-  /// ------------------------- CREATE CONTACT -------------------------
-
   Future<void> addCard({required UserCard cardModel}) async {
     try {
       DocumentReference newCard =
@@ -23,8 +21,6 @@ class UserCardsRepository{
       getMyToast(message: e.message.toString());
     }
   }
-
-  /// ------------------------- READ CONTACTS -------------------------
 
   Stream<List<UserCard>> getAllCards() => firestore
       .collection("Cards")
